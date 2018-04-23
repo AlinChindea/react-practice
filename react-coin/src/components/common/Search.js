@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from './Loading';
 import {API_URL} from '../../config';
 import {handleResponse} from '../../helpers';
 
@@ -8,7 +9,8 @@ class Search extends React.Component {
 
     this.state = {
       searchQuery: '',
-      firstname: ''
+      firstname: '',
+      loading: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,6 +24,8 @@ class Search extends React.Component {
       return '';
     }
 
+    this.setState({ loading: true });
+
     fetch(`${API_URL}/autocomplete?searchQuery=${searchQuery}`)
       .then(handleResponse)
       .then((result) => {
@@ -34,9 +38,23 @@ class Search extends React.Component {
 
 
   render() {
+    const { loading } = this.state;
     return (
-      <div>
-        <input onChange={this.handleChange}/>
+      <div className='Search'>
+        <span className='Search-icon' />
+        <input
+          className='Search-input'
+          type='text'
+          placeholder='Currency name'
+          onChange={this.handleChange}
+        />
+        {loading &&
+        <div className='Search-loading'>
+          <Loading
+            width='12px'
+            height='12px'
+          />
+        </div>}
       </div>
     );
   }
