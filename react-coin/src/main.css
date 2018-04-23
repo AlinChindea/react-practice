@@ -58,7 +58,7 @@ input::-ms-clear {
 }
 
 
-.Header {
+.header {
   display: flex;
   flex-direction: row;
   align-items: center;
