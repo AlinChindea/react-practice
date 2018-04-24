@@ -64,9 +64,7 @@ class Detail extends React.Component {
     }
     return (
       <div className='Detail'>
-        <div className='Backbutton'>
-          <BackButton />
-        </div>
+        <BackButton />
         <h1 className='Detail-heading'>
           {currency.name} ({currency.symbol})
         </h1>

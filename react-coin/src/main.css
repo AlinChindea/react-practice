@@ -338,11 +338,11 @@ input::-ms-clear {
   border-bottom: 1px solid #0f273d;
 }
 
-.Backbutton {
+/* .Backbutton {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-}
+} */
 
 .Back-button {
   text-align: center;
