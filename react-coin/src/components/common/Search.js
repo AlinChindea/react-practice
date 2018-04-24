@@ -88,7 +88,7 @@ class Search extends React.Component {
         <input
           className='Search-input'
           type='text'
-          placeholder='Currency name'
+          placeholder='Search by currency name'
           onChange={this.handleChange}
           value={searchQuery}
         />

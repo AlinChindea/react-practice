@@ -2,6 +2,7 @@ import React from 'react';
 import {API_URL} from '../../config';
 import Loading from '../common/Loading';
 import {handleResponse, renderChangePercent} from '../../helpers';
+import BackButton from '../common/BackButton';
 
 class Detail extends React.Component {
   constructor() {
@@ -53,6 +54,7 @@ class Detail extends React.Component {
   render() {
     const {loading, error, currency} = this.state;
 
+
     if (loading) {
       return <div className='loading-container'><Loading /></div>;
     }
@@ -62,6 +64,9 @@ class Detail extends React.Component {
     }
     return (
       <div className='Detail'>
+        <div className='Backbutton'>
+          <BackButton />
+        </div>
         <h1 className='Detail-heading'>
           {currency.name} ({currency.symbol})
         </h1>
