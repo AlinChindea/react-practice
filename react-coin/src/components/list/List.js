@@ -67,6 +67,7 @@ class List extends React.Component {
       <div>
         <Table
           currencies={currencies}
+          handleSort={this.handleSort}
         />
 
         <Pagination
