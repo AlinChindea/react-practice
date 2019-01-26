@@ -4,6 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
 import Fish from './Fish';
+import base from '../base';
 
 
 class App extends React.Component {
@@ -11,6 +12,34 @@ class App extends React.Component {
     fishes: {},
     order: {}
   };
+
+  componentDidMount() {
+    // reference to the db - to the storename and the fishes object which contains and mirrors our state
+    const { params } = this.props.match;
+    // first reinstate localStorage
+    const localStorageRef = localStorage.getItem(params.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+    
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: 'fishes'
+    }); 
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(
+      this.props.match.params.storeId, 
+      JSON.stringify(this.state.order)
+    );
+  }
+
+  componentWillUnmount() {
+    //when we leave our store, unmount our db reference
+    base.removeBinding(this.ref);
+  }
+  
   addFish = fish => {
     // 1. Take a copy of the existing state
     const fishes = { ...this.state.fishes};
@@ -26,7 +55,7 @@ class App extends React.Component {
 
   addToOrder = key => {
     // 1. take a copy of state
-    const order = {...this.state.order}
+    const order = {...this.state.order};
     // 2. either add to order or update number in order
     order[key] = order[key] + 1 || 1;
     // 3. call setState to update our state object
