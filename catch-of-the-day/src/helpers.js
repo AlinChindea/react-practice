@@ -61,9 +61,9 @@ export function getFunName() {
   ];
 
   const nouns = [
-    "women",
-    "men",
-    "children",
+    "lions",
+    "penguins",
+    "hippos",
     "teeth",
     "feet",
     "people",
@@ -72,7 +72,7 @@ export function getFunName() {
     "geese",
     "halves",
     "knives",
-    "wives",
+    "leprechauns",
     "lives",
     "elves",
     "loaves",
