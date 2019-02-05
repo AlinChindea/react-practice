@@ -1,7 +1,7 @@
 # Catch of the Day
 
 ## About
-"Catch of the Day"  is  a real-time app for a seafood market where price and quantity available are variable and can change at a moment's notice. Contains a menu of available and sold out fish, an order form, and an inventory management area where authorized users can immediately update product details. 
+["Catch of the Day"](https://plymouth-catch-of-the-day.netlify.com/)  is  a real-time app for a seafood market where price and quantity available are variable and can change at a moment's notice. Contains a menu of available and sold out fish, an order form, and an inventory management area where authorized users can immediately update product details. 
 
 ## Tech
 - [React.js](https://reactjs.org/)
@@ -35,3 +35,5 @@ You can run the project locally by downloading or cloning the [GitHub repo](http
    - if all is fine run `netlify deploy --prod` => issues you a permanent link
 
 To make sure that GitHub authentication works you need to add your new netlify domain to Firebase (in the console, authentication menu - sign-in method, add domain).
+
+## [DEMO](https://plymouth-catch-of-the-day.netlify.com/)
